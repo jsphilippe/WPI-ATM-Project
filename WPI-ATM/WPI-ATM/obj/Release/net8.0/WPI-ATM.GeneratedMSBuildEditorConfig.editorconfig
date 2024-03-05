@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WPI_ATM
-build_property.ProjectDir = C:\Users\phili\Downloads\WPI\CS509-S24-S01\WPI-ATM\WPI-ATM\
+build_property.ProjectDir = C:\Users\phili\Downloads\WPI\CS509-S24-S01\WPI-ATM-Project\WPI-ATM\WPI-ATM\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

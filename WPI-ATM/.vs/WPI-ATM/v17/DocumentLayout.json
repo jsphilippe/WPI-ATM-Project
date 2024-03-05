@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\",
+  "WorkspaceRootPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|c:\\users\\phili\\downloads\\wpi\\cs509-s24-s01\\wpi-atm\\wpi-atm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|c:\\users\\phili\\downloads\\wpi\\cs509-s24-s01\\wpi-atm-project\\wpi-atm\\wpi-atm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|solutionrelative:wpi-atm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|c:\\users\\phili\\downloads\\wpi\\cs509-s24-s01\\wpi-atm\\wpi-atm\\wpi-atm.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|c:\\users\\phili\\downloads\\wpi\\cs509-s24-s01\\wpi-atm-project\\wpi-atm\\wpi-atm\\wpi-atm.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{9B51F69A-58F9-43B7-A273-A3AF791D6F65}|WPI-ATM\\WPI-ATM.csproj|solutionrelative:wpi-atm\\wpi-atm.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -32,9 +32,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "WPI-ATM.csproj",
-              "DocumentMoniker": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
+              "DocumentMoniker": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
               "RelativeDocumentMoniker": "WPI-ATM\\WPI-ATM.csproj",
-              "ToolTip": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
+              "ToolTip": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
               "RelativeToolTip": "WPI-ATM\\WPI-ATM.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -44,11 +44,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\Program.cs",
               "RelativeDocumentMoniker": "WPI-ATM\\Program.cs",
-              "ToolTip": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\Program.cs",
+              "ToolTip": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\Program.cs",
               "RelativeToolTip": "WPI-ATM\\Program.cs",
-              "ViewState": "AQIAACUDAAAAAAAAAAAYwEQDAAAAAAAA",
+              "ViewState": "AQIAAIUBAAAAAAAAAAAqwJkBAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-28T21:08:15.026Z",
               "EditorCaption": ""

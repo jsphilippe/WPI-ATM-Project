@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZK/dzj4G0x0YHjcnMRRu6ez+FQ37XY4gkXbyNNzyArbA9oKZkFckPPQF9l63+9YrGIQqs604Cd6TYSefMEXW5w==",
+  "dgSpecHash": "N5DN8Ja5/7Avzo2GFk8PESP134NJBe9rwJzNTj61b3O3oM1qYFGkqDMRt4c+M8JH8OWIkJVHMbcejxNhwe++lw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
+  "projectFilePath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phili\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\phili\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

@@ -1791,11 +1791,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
+      "projectUniqueName": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
       "projectName": "WPI-ATM",
-      "projectPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
+      "projectPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\WPI-ATM.csproj",
       "packagesPath": "C:\\Users\\phili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM\\WPI-ATM\\obj\\",
+      "outputPath": "C:\\Users\\phili\\Downloads\\WPI\\CS509-S24-S01\\WPI-ATM-Project\\WPI-ATM\\WPI-ATM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\phili\\AppData\\Roaming\\NuGet\\NuGet.Config",

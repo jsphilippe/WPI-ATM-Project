@@ -301,14 +301,7 @@ public class WPI
             }
             else if (customerselect5 == 2)
             {
-                Console.WriteLine(customerselect6[0]);
-                customerselect1 = Console.ReadLine();
-                IDBDetails idbdetails = new DBDetails();
-                idbdetails.viewCustomerAccount(1, customerselect4);
-                bool result1 = int.TryParse(customerselect1, out customerselect7);
-                bool result2 = int.TryParse(readdbdata9, out customerselect8);
-                customerselect9 = customerselect7 + customerselect8;
-                Console.WriteLine(customerselect9);
+
             }
             else if (customerselect5 == 3)
             {
@@ -414,7 +407,7 @@ public class WPI
                 addcustomeraccount2 = Console.ReadLine();
                 bool result = int.TryParse(addcustomeraccount2, out addcustomeraccount5);
             }
-            while (addcustomeraccount5 < 0 && addcustomeraccount5 > 25000);
+            while (addcustomeraccount5 < 1 && addcustomeraccount5 > 25000);
             Random addcustomeraccount6 = new Random();
             addcustomeraccount7 = addcustomeraccount6.Next(10000, 100000);
             addcustomeraccount4 = addcustomeraccount8[0] + addcustomeraccount0 + addcustomeraccount8[5]
@@ -496,6 +489,7 @@ public class WPI
         private int modifycustomeraccount10;
         private int modifycustomeraccount11;
         private int modifycustomeraccount12;
+        private int modifycustomeraccount14;
         private List<string> modifycustomeraccount13 = new List<string>
         {
             "UPDATE wpiatmdb.customers SET ",
@@ -511,74 +505,99 @@ public class WPI
             "Please input the customer's ",
             "new ",
             "userID and press the ENTER key:",
-            "Please inputr the customer's new userPIN and press the ENTER key:",
+            "Do you want to reset the customer's userPIN?",
             "Please input the customer's new holding company and press the ENTER key:",
             "\nPlease input the customer's new account status:",
-            "\nInput an option and press the ENTER key",
+            "\nPlease Input an option and press the ENTER key",
             "\n1 - Active",
             "\n2 - Disabled",
-            " WHERE accountnumber = null",
-            " OR WHERE userid = null"
+            "\n1 - Yes",
+            "\n2 - No"
         };
         void IModifyCustomerAccount.modifyCustomerAccount()
         {
-            IModifyCustomerAccountSubMenu modifycustomeraccountsubmenu1 = new ModifyCustomerAccountSubMenu();
-            modifycustomeraccountsubmenu1.modifyCustomerAccountSubMenu1();
+            IModifyCustomerAccountSubMenu modifycustomeraccountsubmenu0 = new ModifyCustomerAccountSubMenu();
+            modifycustomeraccountsubmenu0.modifyCustomerAccountSubMenu0();
             modifycustomeraccount0 = Console.ReadLine();
             bool result0 = int.TryParse(modifycustomeraccount0, out modifycustomeraccount9);
-            do
+            if (modifycustomeraccount9 == 1)
             {
-                if (modifycustomeraccount9 == 1)
+                Console.WriteLine(modifycustomeraccount13[9]);
+                modifycustomeraccount1 = Console.ReadLine();
+                do
                 {
-                    Console.WriteLine(modifycustomeraccount13[9]);
-                    modifycustomeraccount1 = Console.ReadLine();
-                    bool result1 = int.TryParse(modifycustomeraccount1, out modifycustomeraccount10);
-                }
-                else
-                {
-                    Console.WriteLine(modifycustomeraccount13[10] + modifycustomeraccount13[12]);
+                    Console.WriteLine(modifycustomeraccount13[15] + modifycustomeraccount13[16]
+                                      + modifycustomeraccount13[17] + modifycustomeraccount13[18]);
                     modifycustomeraccount2 = Console.ReadLine();
+                    bool result1 = int.TryParse(modifycustomeraccount0, out modifycustomeraccount10);
+                    if (modifycustomeraccount10 == 1)
+                    {
+                        modifycustomeraccount3 = "Active";
+                    }
+                    else if (modifycustomeraccount10 == 2)
+                    {
+                        modifycustomeraccount3 = "Disabled";
+                    }
                 }
+                while (modifycustomeraccount10 != 1 && modifycustomeraccount10 != 2);
+                modifycustomeraccount3 = modifycustomeraccount13[0] + modifycustomeraccount13[4]
+                                         + modifycustomeraccount3 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                                         + modifycustomeraccount13[8];
+                IDBDetails dbdetails = new DBDetails();
+                dbdetails.addCustomerAccount(modifycustomeraccount3);
             }
-            while (modifycustomeraccount9 !=1 && modifycustomeraccount9 !=2);
-            Console.Clear();
-            IModifyCustomerAccountSubMenu modifycustomeraccountsubmenu = new ModifyCustomerAccountSubMenu();
-            modifycustomeraccountsubmenu.modifyCustomerAccountSubMenu0();
-            modifycustomeraccount3 = Console.ReadLine();
-            bool result2 = int.TryParse(modifycustomeraccount3, out modifycustomeraccount12);
-            if (modifycustomeraccount12 == 1)
-            {
-                Console.WriteLine(modifycustomeraccount13[15] + modifycustomeraccount13[16]
-                                  + modifycustomeraccount13[17] + modifycustomeraccount13[18]);
-                modifycustomeraccount4 = Console.ReadLine();
-            }
-            else if (modifycustomeraccount12 == 2)
+            else if (modifycustomeraccount9 == 2)
             {
                 Console.WriteLine(modifycustomeraccount13[10] + modifycustomeraccount13[11]
                                   + modifycustomeraccount13[12]);
-                modifycustomeraccount5 = Console.ReadLine();
-       
+                modifycustomeraccount4 = Console.ReadLine();
+                modifycustomeraccount4 = modifycustomeraccount13[0] + modifycustomeraccount13[1]
+                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                                         + modifycustomeraccount13[8];
+                IDBDetails dbdetails = new DBDetails();
+                dbdetails.addCustomerAccount(modifycustomeraccount4);
             }
-            else if (modifycustomeraccount12 == 3)
+            else if (modifycustomeraccount9 == 3)
             {
                 Console.WriteLine(modifycustomeraccount13[13]);
-                modifycustomeraccount6 = Console.ReadLine();
-
+                modifycustomeraccount5 = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine(modifycustomeraccount13[16] + modifycustomeraccount13[19]
+                            + modifycustomeraccount13[20]);
+                    bool result1 = int.TryParse(modifycustomeraccount5, out modifycustomeraccount11);
+                    if (modifycustomeraccount11 == 1)
+                    {
+                        Random modifycustomeraccount15 = new Random();
+                        modifycustomeraccount14 = modifycustomeraccount15.Next(10000, 100000);
+                    }
+                    else if (modifycustomeraccount11 == 2)
+                    {
+                        IModifyCustomerAccount modifycustomeraccount = new ModifyCustomerAccount();
+                        modifycustomeraccount.modifyCustomerAccount();
+                    }
+                }
+                while (modifycustomeraccount11 !=1 && modifycustomeraccount11 != 2);
+                modifycustomeraccount5 = modifycustomeraccount13[0] + modifycustomeraccount13[2]
+                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                                         + modifycustomeraccount13[8];
+                IDBDetails dbdetails = new DBDetails();
             }
-            else if (modifycustomeraccount12 == 4)
+            else if (modifycustomeraccount9 == 4)
             {
                 Console.WriteLine(modifycustomeraccount13[14]);
-                modifycustomeraccount7 = Console.ReadLine();
-                if (modifycustomeraccount1 == null)
-                {
-
-                }
-                else if (modifycustomeraccount2 == null)
-                {
-
-                }
+                modifycustomeraccount6 = Console.ReadLine();
+                modifycustomeraccount6 = modifycustomeraccount13[0] + modifycustomeraccount13[3]
+                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                                         + modifycustomeraccount13[8];
+                IDBDetails dbdetails = new DBDetails();
+                dbdetails.addCustomerAccount(modifycustomeraccount4);
             }
-            else if (modifycustomeraccount12 == 5)
+            else if (modifycustomeraccount9 == 5)
             {
                 IAdministratorSelect administratorselect = new AdministratorSelect();
                 administratorselect.administratorSelect();
@@ -607,7 +626,7 @@ public class WPI
         private List<string> modifycustomeraccountsubmenu0 = new List<string>
         {
             "WPI-ATM Customer Account Update Submenu",
-            "Please select an option and press the ENTER key:",
+            "Please input an option and press the ENTER key:",
             "1 - Update Account Status",
             "2 - Update UserID",
             "3 - Update UserPIN",

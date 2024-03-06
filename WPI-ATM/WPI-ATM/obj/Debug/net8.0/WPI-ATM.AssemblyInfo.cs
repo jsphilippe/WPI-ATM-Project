@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPI-ATM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a2ab7dcc70b03deb1baf138b15f0d2530945e79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c0260f775fe7c3933f8f0f2d2428516fa65c160")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPI-ATM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPI-ATM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

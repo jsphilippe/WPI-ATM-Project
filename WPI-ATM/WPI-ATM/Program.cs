@@ -280,7 +280,8 @@ public class WPI
         private int customerselect5;
         private List<string> customerselect6 = new List<string>
         {
-            "Please input an amount between $1.00 and $10,000 to deposit:"
+            "Please input an amount between $50.00 and $10,000 to deposit:",
+            "Please input an amount between $50.00 and $1000.00 to withdraw"
         };
         private int customerselect7;
         private string readdbdata9 = string.Empty;
@@ -407,7 +408,7 @@ public class WPI
                 addcustomeraccount2 = Console.ReadLine();
                 bool result = int.TryParse(addcustomeraccount2, out addcustomeraccount5);
             }
-            while (addcustomeraccount5 < 1 && addcustomeraccount5 > 25000);
+            while (1 > addcustomeraccount5 && addcustomeraccount5 > 25000);
             Random addcustomeraccount6 = new Random();
             addcustomeraccount7 = addcustomeraccount6.Next(10000, 100000);
             addcustomeraccount4 = addcustomeraccount8[0] + addcustomeraccount0 + addcustomeraccount8[5]
@@ -497,14 +498,12 @@ public class WPI
             "userpin = '",
             "holdingcompany = '",
             "userstatus = '",
-            " WHERE accountnumber = ",
-            " OR WHERE userid = '",
+            ", transactioninfo = '",
+            "WHERE accountnumber = ",
             "'",
             ";",
             "Please input the customer's account number and press the ENTER key:",
-            "Please input the customer's ",
-            "new ",
-            "userID and press the ENTER key:",
+            "Please input the customer's new userID and press the ENTER key:",
             "Do you want to reset the customer's userPIN?",
             "Please input the customer's new holding company and press the ENTER key:",
             "\nPlease input the customer's new account status:",
@@ -512,7 +511,11 @@ public class WPI
             "\n1 - Active",
             "\n2 - Disabled",
             "\n1 - Yes",
-            "\n2 - No"
+            "\n2 - No",
+            "Account status update on ",
+            "UserID update on ",
+            "UserPIN reset on ",
+            "Holding company update on "
         };
         void IModifyCustomerAccount.modifyCustomerAccount()
         {
@@ -520,82 +523,90 @@ public class WPI
             modifycustomeraccountsubmenu0.modifyCustomerAccountSubMenu0();
             modifycustomeraccount0 = Console.ReadLine();
             bool result0 = int.TryParse(modifycustomeraccount0, out modifycustomeraccount9);
+            Console.WriteLine(modifycustomeraccount13[9]);
+            modifycustomeraccount1 = Console.ReadLine();
+            bool result1 = int.TryParse(modifycustomeraccount1, out modifycustomeraccount10);
             if (modifycustomeraccount9 == 1)
             {
-                Console.WriteLine(modifycustomeraccount13[9]);
-                modifycustomeraccount1 = Console.ReadLine();
+                Console.WriteLine(modifycustomeraccount13[13] + modifycustomeraccount13[14]
+                                  + modifycustomeraccount13[15] + modifycustomeraccount13[16]);
+                modifycustomeraccount2 = Console.ReadLine();
+                bool result2 = int.TryParse(modifycustomeraccount2, out modifycustomeraccount11);
                 do
                 {
-                    Console.WriteLine(modifycustomeraccount13[15] + modifycustomeraccount13[16]
-                                      + modifycustomeraccount13[17] + modifycustomeraccount13[18]);
-                    modifycustomeraccount2 = Console.ReadLine();
-                    bool result1 = int.TryParse(modifycustomeraccount0, out modifycustomeraccount10);
-                    if (modifycustomeraccount10 == 1)
+                    if (modifycustomeraccount11 == 1)
                     {
                         modifycustomeraccount3 = "Active";
                     }
-                    else if (modifycustomeraccount10 == 2)
+                    else if (modifycustomeraccount11 == 2)
                     {
                         modifycustomeraccount3 = "Disabled";
                     }
                 }
-                while (modifycustomeraccount10 != 1 && modifycustomeraccount10 != 2);
+                while (modifycustomeraccount11 != 1 && modifycustomeraccount11 != 2);
                 modifycustomeraccount3 = modifycustomeraccount13[0] + modifycustomeraccount13[4]
                                          + modifycustomeraccount3 + modifycustomeraccount13[7]
-                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                                         + modifycustomeraccount13[5] + modifycustomeraccount13[19]
+                                         + DateTime.Now + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[6] + modifycustomeraccount10
                                          + modifycustomeraccount13[8];
                 IDBDetails dbdetails = new DBDetails();
                 dbdetails.addCustomerAccount(modifycustomeraccount3);
             }
             else if (modifycustomeraccount9 == 2)
             {
-                Console.WriteLine(modifycustomeraccount13[10] + modifycustomeraccount13[11]
-                                  + modifycustomeraccount13[12]);
-                modifycustomeraccount4 = Console.ReadLine();
-                modifycustomeraccount4 = modifycustomeraccount13[0] + modifycustomeraccount13[1]
-                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
-                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                Console.WriteLine(modifycustomeraccount13[10]);
+                modifycustomeraccount2 = Console.ReadLine();
+                modifycustomeraccount3 = modifycustomeraccount13[0] + modifycustomeraccount13[1]
+                                         + modifycustomeraccount2 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount13[20]
+                                         + DateTime.Now + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[6] + modifycustomeraccount10
                                          + modifycustomeraccount13[8];
                 IDBDetails dbdetails = new DBDetails();
-                dbdetails.addCustomerAccount(modifycustomeraccount4);
+                dbdetails.addCustomerAccount(modifycustomeraccount3);
             }
             else if (modifycustomeraccount9 == 3)
             {
-                Console.WriteLine(modifycustomeraccount13[13]);
-                modifycustomeraccount5 = Console.ReadLine();
+                Console.WriteLine(modifycustomeraccount13[11] + modifycustomeraccount13[14]
+                                  + modifycustomeraccount13[17] + modifycustomeraccount13[18]);
+                modifycustomeraccount2 = Console.ReadLine();
+                bool result2 = int.TryParse(modifycustomeraccount2, out modifycustomeraccount11);
                 do
                 {
-                    Console.WriteLine(modifycustomeraccount13[16] + modifycustomeraccount13[19]
-                            + modifycustomeraccount13[20]);
-                    bool result1 = int.TryParse(modifycustomeraccount5, out modifycustomeraccount11);
                     if (modifycustomeraccount11 == 1)
                     {
-                        Random modifycustomeraccount15 = new Random();
-                        modifycustomeraccount14 = modifycustomeraccount15.Next(10000, 100000);
+                        Random modifycustomeraccount12 = new Random();
+                        modifycustomeraccount14 = modifycustomeraccount12.Next(10000, 100000);
                     }
                     else if (modifycustomeraccount11 == 2)
                     {
-                        IModifyCustomerAccount modifycustomeraccount = new ModifyCustomerAccount();
-                        modifycustomeraccount.modifyCustomerAccount();
+                        modifycustomeraccount3 = "Disabled";
                     }
                 }
-                while (modifycustomeraccount11 !=1 && modifycustomeraccount11 != 2);
-                modifycustomeraccount5 = modifycustomeraccount13[0] + modifycustomeraccount13[2]
-                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
-                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                while (modifycustomeraccount11 != 1 && modifycustomeraccount11 != 2);
+                modifycustomeraccount3 = modifycustomeraccount13[0] + modifycustomeraccount13[2]
+                                         + modifycustomeraccount14 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount13[21]
+                                         + DateTime.Now + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[6] + modifycustomeraccount10
                                          + modifycustomeraccount13[8];
                 IDBDetails dbdetails = new DBDetails();
+                dbdetails.addCustomerAccount(modifycustomeraccount3);
             }
             else if (modifycustomeraccount9 == 4)
             {
-                Console.WriteLine(modifycustomeraccount13[14]);
-                modifycustomeraccount6 = Console.ReadLine();
-                modifycustomeraccount6 = modifycustomeraccount13[0] + modifycustomeraccount13[3]
-                                         + modifycustomeraccount4 + modifycustomeraccount13[7]
-                                         + modifycustomeraccount13[5] + modifycustomeraccount1
+                Console.WriteLine(modifycustomeraccount13[12]);
+                modifycustomeraccount2 = Console.ReadLine();
+                bool result2 = int.TryParse(modifycustomeraccount2, out modifycustomeraccount11);
+                modifycustomeraccount3 = modifycustomeraccount13[0] + modifycustomeraccount13[1]
+                                         + modifycustomeraccount2 + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[5] + modifycustomeraccount13[22]
+                                         + DateTime.Now + modifycustomeraccount13[7]
+                                         + modifycustomeraccount13[6] + modifycustomeraccount10
                                          + modifycustomeraccount13[8];
                 IDBDetails dbdetails = new DBDetails();
-                dbdetails.addCustomerAccount(modifycustomeraccount4);
+                dbdetails.addCustomerAccount(modifycustomeraccount3);
             }
             else if (modifycustomeraccount9 == 5)
             {
@@ -629,7 +640,7 @@ public class WPI
             "Please input an option and press the ENTER key:",
             "1 - Update Account Status",
             "2 - Update UserID",
-            "3 - Update UserPIN",
+            "3 - Reset UserPIN",
             "4 - Update Holding Company",
             "5 - Return to previous menu",
             "6 - Exit"
@@ -756,7 +767,7 @@ public class WPI
             "\n5 - Holding Company: ",
             "\n6 - Account Balance: $",
             "\n7 - Last transaction: ",
-            "\nDue to security concerns, this screen will revert back to the previous menu in 30 seconds."
+            "\nYou will return to the previous menu in 15 seconds."
     };
         void IReadDBData.authenticateUser(string userid, string userpin, string authenticateuserquery,
                                           string dbdetailsstring0, string dbdetailsstring1,
@@ -826,7 +837,7 @@ public class WPI
                                   + readdbdatastringlist[5] + readdbdata8 + readdbdatastringlist[6]
                                   + readdbdata9 + readdbdatastringlist[7] + readdbdata10
                                   + readdbdatastringlist[8]);
-                Thread.Sleep(30000);
+                Thread.Sleep(15000);
                 if (usertype == 0)
                 {
                     IAdministratorSelect administratorselect = new AdministratorSelect();

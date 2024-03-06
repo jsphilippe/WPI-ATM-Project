@@ -8,6 +8,7 @@ using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
@@ -15,7 +16,6 @@ using Org.BouncyCastle.Bcpg;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static Mysqlx.Expect.Open.Types.Condition.Types;
 using static WPI;
-
 public class WPI
 {
     public class WPIATM
@@ -195,8 +195,8 @@ public class WPI
         "1 - View my account information",
         "2 - Deposit cash",
         "3 - Withdraw cash",
-        "5 - Return to previous menu",
-        "6 - Exit"
+        "4 - Return to previous menu",
+        "5 - Exit"
     };
         void ICustomerMenu.customerMenu()
         {
@@ -280,18 +280,30 @@ public class WPI
         private int customerselect5;
         private List<string> customerselect6 = new List<string>
         {
-            "Please input an amount between $50.00 and $10,000 to deposit:",
-            "Please input an amount between $50.00 and $1000.00 to withdraw",
+<<<<<<< HEAD
+            "Please input an amount between $10 and $10,000 to deposit:",
+=======
+            "Please input an amount between $1 and $10,000 to deposit:",
+>>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
+            "Please input an amount between $10 and $1,000 to withdraw",
             "UPDATE wpiatmdb.customers SET startingbalance = '",
             "'",
             " WHERE userid = '",
-            ";"
+            ";",
+<<<<<<< HEAD
+            ", transactioninfo = 'Cash transaction ",
+=======
+            "Deposit ",
+            "Withdrawal"
+>>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
         };
         private int customerselect7;
         private string customerselect8 = string.Empty;
         private int customerselect9;
         void ICustomerSelect.customerSelect(string userid)
         {
+            MyVariable myvariable = new MyVariable();
+            myvariable.myVariable(userid);
             customerselect4 = customerselect4 + userid + "';";
             ICustomerMenu customermenu = new CustomerMenu();
             customermenu.customerMenu();
@@ -305,37 +317,51 @@ public class WPI
             }
             else if (customerselect5 == 2)
             {
+                do
+<<<<<<< HEAD
+                {
+                    Console.WriteLine(customerselect6[0]);
+                    customerselect1 = Console.ReadLine();
+                    bool result1 = int.TryParse(customerselect1, out customerselect5);
+                }
+                while (customerselect5 < 10 | customerselect5 > 10000);
+                Console.WriteLine("Attempting to deposit $" + customerselect5);
+                ICustomerSelect customerselect0 = new CustomerSelect();
+                customerselect0.customerSelect0(userid, customerselect1);
+=======
+                {    
                 Console.WriteLine(customerselect6[0]);
                 customerselect1 = Console.ReadLine();
                 bool result1 = int.TryParse(customerselect1, out customerselect5);
-                if (customerselect5 > 0)
-                {
-                    customerselect5 = customerselect5;
                 }
-                else
-                {
-                    ICustomerSelect customerselect = new CustomerSelect();
-                    customerselect.customerSelect(userid);
-                }
+                while (1 > customerselect5 && customerselect5 > 10000)
                 IDBDetails idbdetails = new DBDetails();
                 idbdetails.adjustCustomerBalance(customerselect2);
+>>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
             }
             else if (customerselect5 == 3)
             {
+                do
+                {
+<<<<<<< HEAD
+                    Console.WriteLine(customerselect6[1]);
+                    customerselect2 = Console.ReadLine();
+                    bool result1 = int.TryParse(customerselect2, out customerselect5);
+                }
+                while (customerselect5 < 10 | customerselect5 > 1000);
+                Console.WriteLine("Attempting to withdraw $" + customerselect5);
+                customerselect5 = System.Math.Abs(customerselect5) * (-1);
+                ICustomerSelect customerselect0 = new CustomerSelect();
+                customerselect0.customerSelect0(userid, customerselect1);
+=======
                 Console.WriteLine(customerselect6[1]);
                 customerselect2 = Console.ReadLine();
                 bool result1 = int.TryParse(customerselect2, out customerselect5);
-                if (customerselect5 > 0)
-                {
-                    customerselect5 = customerselect5 * -1;
                 }
-                else
-                {
-                    ICustomerSelect customerselect = new CustomerSelect();
-                    customerselect.customerSelect(userid);
-                }
+                while (10 > customerselect5 && customerselect5 > 1000)
                 IDBDetails idbdetails = new DBDetails();
                 idbdetails.adjustCustomerBalance(customerselect4);
+>>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
             }
             else if (customerselect5 == 4)
             {
@@ -355,21 +381,34 @@ public class WPI
         }
         void ICustomerSelect.customerSelect0(string userid, string sugardaddy)
         {
-            customerselect9 = int.Parse(sugardaddy);
-            customerselect7 = customerselect5 + customerselect9;
-            customerselect4 = customerselect6[2] + customerselect7
-                              + customerselect6[3] + customerselect6[4] + userid
-                              + customerselect6[3] + customerselect6[5];
-            Console.WriteLine(customerselect7 + customerselect4);
-            IDBDetails idbdetails = new DBDetails();
-            Console.WriteLine(customerselect7 + "This" + customerselect7 + "this" + customerselect4);
-            idbdetails.adjustCustomerBalance(customerselect4);
+            bool result1 = int.TryParse(sugardaddy, out customerselect7);
+            customerselect9 = customerselect5 + customerselect7;
+            if (customerselect9 >= 0)
+            {
+                customerselect4 = customerselect6[2] + customerselect9 + customerselect6[3] + customerselect6[6]
+                                  + DateTime.Now + customerselect6[3] + customerselect6[4]
+                                  + userid + customerselect6[3] + customerselect6[5];
+                IDBDetails idbdetails = new DBDetails();
+                idbdetails.adjustCustomerBalance(customerselect4);
+            }
+            else
+            {
+                Console.WriteLine("Unable to complete the transaction. Please try again.");
+            }
         }
     }
     public interface ICustomerSelect
     {
         public void customerSelect(string userid);
         public void customerSelect0(string userid, string sugardaddy);
+    }
+    private class MyVariable
+    {
+        public static string myvariable = string.Empty;
+        public void myVariable(string userid)
+        {
+            myvariable = userid;
+        }
     }
     private class AuthenticateUser : IAuthenticateUser
     {
@@ -750,7 +789,7 @@ public class WPI
     {
         private string dbdetailsstring0 = "localhost";
         private string dbdetailsstring1 = "root";
-        private string dbdetailsstring2 = "\"9Q&lt;td4U4ed6TA\"";
+        private string dbdetailsstring2 = "";
         private string dbdetailsstring3 = "wpiatmdb";
         void IDBDetails.authenticateUser(string userid, string userpin, string authenticateuserquery)
         {
@@ -884,6 +923,7 @@ public class WPI
                 }
                 else if (usertype == 2)
                 {
+                    Console.WriteLine(readdbdata6 + " & " + readdbdata9);
                     ICustomerSelect customerselect = new CustomerSelect();
                     customerselect.customerSelect0(readdbdata6, readdbdata9);
                 }
@@ -963,8 +1003,6 @@ public class WPI
             var modifydbdatavariable0 = new MySql.Data.MySqlClient.MySqlConnection(modifydbdata4);
             var modifydbdatavariable1 = new MySql.Data.MySqlClient.MySqlCommand(addcustomerquery,
                                         modifydbdatavariable0);
-            Console.WriteLine("Please enter your userID to validate your identity: ");
-            modifydbdata5 = Console.ReadLine();
             try
             {
                 modifydbdatavariable0.Open();
@@ -972,17 +1010,17 @@ public class WPI
                 Console.WriteLine("Transaction successfully executed!"
                                   + "\nReturning to the previous menu.");
                 Thread.Sleep(3000);
-                ICustomerSelect sustomerselect = new CustomerSelect();
-                sustomerselect.customerSelect(modifydbdata5);
+                ICustomerSelect customerselect = new CustomerSelect();
+                customerselect.customerSelect(MyVariable.myvariable);
             }
             catch (Exception modifydbdata6)
             {
                 Console.WriteLine("The following error occurred: "
                                   + "\n" + modifydbdata6
-                                  + "\nReturning to the previous menu.");
-                Thread.Sleep(30000);
-                ICustomerSelect sustomerselect = new CustomerSelect();
-                sustomerselect.customerSelect(modifydbdata5);
+                                  + "\nReturning to the previous menu in 15 seconds.");
+                Thread.Sleep(15000);
+                ICustomerSelect customerselect = new CustomerSelect();
+                customerselect.customerSelect(MyVariable.myvariable);
             }
         }
     }

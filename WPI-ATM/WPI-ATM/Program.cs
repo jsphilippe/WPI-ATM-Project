@@ -281,11 +281,14 @@ public class WPI
         private List<string> customerselect6 = new List<string>
         {
             "Please input an amount between $50.00 and $10,000 to deposit:",
-            "Please input an amount between $50.00 and $1000.00 to withdraw"
+            "Please input an amount between $50.00 and $1000.00 to withdraw",
+            "UPDATE wpiatmdb.customers SET startingbalance = '",
+            "'",
+            " WHERE userid = '",
+            ";"
         };
         private int customerselect7;
-        private string readdbdata9 = string.Empty;
-        private int customerselect8;
+        private string customerselect8 = string.Empty;
         private int customerselect9;
         void ICustomerSelect.customerSelect(string userid)
         {
@@ -302,15 +305,42 @@ public class WPI
             }
             else if (customerselect5 == 2)
             {
-
+                Console.WriteLine(customerselect6[0]);
+                customerselect1 = Console.ReadLine();
+                bool result1 = int.TryParse(customerselect1, out customerselect5);
+                if (customerselect5 > 0)
+                {
+                    customerselect5 = customerselect5;
+                }
+                else
+                {
+                    ICustomerSelect customerselect = new CustomerSelect();
+                    customerselect.customerSelect(userid);
+                }
+                IDBDetails idbdetails = new DBDetails();
+                idbdetails.adjustCustomerBalance(customerselect2);
             }
             else if (customerselect5 == 3)
             {
-
+                Console.WriteLine(customerselect6[1]);
+                customerselect2 = Console.ReadLine();
+                bool result1 = int.TryParse(customerselect2, out customerselect5);
+                if (customerselect5 > 0)
+                {
+                    customerselect5 = customerselect5 * -1;
+                }
+                else
+                {
+                    ICustomerSelect customerselect = new CustomerSelect();
+                    customerselect.customerSelect(userid);
+                }
+                IDBDetails idbdetails = new DBDetails();
+                idbdetails.adjustCustomerBalance(customerselect4);
             }
             else if (customerselect5 == 4)
             {
-
+                ICustomerSelect customerselect  = new CustomerSelect();
+                customerselect.customerSelect(userid);
             }
             else if (customerselect5 == 5)
             {
@@ -323,21 +353,23 @@ public class WPI
                 exitconsole.exitConsole();
             }
         }
-        void ICustomerSelect.customerSelect0(int readbdata11, string readdbdata4, string readdbdata5, string readdbdata6,
-                              string readdbdata7, string readdbdata8, string readdbdata9, string readdbdata10)
+        void ICustomerSelect.customerSelect0(string userid, string sugardaddy)
         {
+            customerselect9 = int.Parse(sugardaddy);
+            customerselect7 = customerselect5 + customerselect9;
+            customerselect4 = customerselect6[2] + customerselect7
+                              + customerselect6[3] + customerselect6[4] + userid
+                              + customerselect6[3] + customerselect6[5];
+            Console.WriteLine(customerselect7 + customerselect4);
             IDBDetails idbdetails = new DBDetails();
-            idbdetails.viewCustomerAccount(1, customerselect4);
-            readdbdata9 = readdbdata9;
+            Console.WriteLine(customerselect7 + "This" + customerselect7 + "this" + customerselect4);
+            idbdetails.adjustCustomerBalance(customerselect4);
         }
-
     }
     public interface ICustomerSelect
     {
         public void customerSelect(string userid);
-        public void customerSelect0(int readbdata11, string readdbdata4, string readdbdata5, string readdbdata6,
-                                    string readdbdata7, string readdbdata8, string readdbdata9,
-                                    string readdbdata10);
+        public void customerSelect0(string userid, string sugardaddy);
     }
     private class AuthenticateUser : IAuthenticateUser
     {
@@ -738,6 +770,12 @@ public class WPI
             modifydbdata.modifyDBData(addcustomeraccountquery, dbdetailsstring0, dbdetailsstring1,
                                       dbdetailsstring2, dbdetailsstring3);
         }
+        void IDBDetails.adjustCustomerBalance(string adjustcustomerbalance)
+        {
+            IModifyDBData modifydbdata = new ModifyDBData();
+            modifydbdata.modifyDBData0(adjustcustomerbalance, dbdetailsstring0, dbdetailsstring1,
+                                      dbdetailsstring2, dbdetailsstring3);
+        }
     }
     public interface IDBDetails
     {
@@ -745,6 +783,7 @@ public class WPI
                                      string authenticateuserquery);
         public void viewCustomerAccount(int usertype, string viewcustomeraccountquery);
         public void addCustomerAccount(string addcustomeraccountquery);
+        public void adjustCustomerBalance(string adjustcustomerbalance);
     }
     private class ReadDBData : IReadDBData
     {
@@ -843,13 +882,16 @@ public class WPI
                     IAdministratorSelect administratorselect = new AdministratorSelect();
                     administratorselect.administratorSelect();
                 }
+                else if (usertype == 2)
+                {
+                    ICustomerSelect customerselect = new CustomerSelect();
+                    customerselect.customerSelect0(readdbdata6, readdbdata9);
+                }
                 else
                 {
                     ICustomerSelect customerselect = new CustomerSelect();
                     customerselect.customerSelect(readdbdata6);
                     ICustomerSelect customerselect0 = new CustomerSelect();
-                    customerselect.customerSelect0(readbdata11, readdbdata4, readdbdata5, readdbdata6, readdbdata7,
-                                                   readdbdata8, readdbdata9, readdbdata10);
                 }
             }
             else
@@ -880,6 +922,7 @@ public class WPI
     private class ModifyDBData : IModifyDBData
     {
         private string modifydbdata4 = string.Empty;
+        private string modifydbdata5 = string.Empty;
         void IModifyDBData.modifyDBData(string addcustomerquery, string modifydbdata0,
                                         string modifydbdata1, string modifydbdata2,
                                         string modifydbdata3)
@@ -910,10 +953,44 @@ public class WPI
                 administratorselect.administratorSelect();
             }
         }
+        void IModifyDBData.modifyDBData0(string addcustomerquery, string modifydbdata0,
+                                       string modifydbdata1, string modifydbdata2,
+                                       string modifydbdata3)
+        {
+            modifydbdata4 = string.Format("server={0};uid={1};pwd={2};database={3};"
+                           , modifydbdata0, modifydbdata1, modifydbdata2
+                           , modifydbdata3);
+            var modifydbdatavariable0 = new MySql.Data.MySqlClient.MySqlConnection(modifydbdata4);
+            var modifydbdatavariable1 = new MySql.Data.MySqlClient.MySqlCommand(addcustomerquery,
+                                        modifydbdatavariable0);
+            Console.WriteLine("Please enter your userID to validate your identity: ");
+            modifydbdata5 = Console.ReadLine();
+            try
+            {
+                modifydbdatavariable0.Open();
+                modifydbdatavariable1.ExecuteNonQuery();
+                Console.WriteLine("Transaction successfully executed!"
+                                  + "\nReturning to the previous menu.");
+                Thread.Sleep(3000);
+                ICustomerSelect sustomerselect = new CustomerSelect();
+                sustomerselect.customerSelect(modifydbdata5);
+            }
+            catch (Exception modifydbdata6)
+            {
+                Console.WriteLine("The following error occurred: "
+                                  + "\n" + modifydbdata6
+                                  + "\nReturning to the previous menu.");
+                Thread.Sleep(30000);
+                ICustomerSelect sustomerselect = new CustomerSelect();
+                sustomerselect.customerSelect(modifydbdata5);
+            }
+        }
     }
     public interface IModifyDBData
     {
-        void modifyDBData(string addcustomerquery, string modifydbdata0, string modifydbdata1,
+        public void modifyDBData(string addcustomerquery, string modifydbdata0, string modifydbdata1,
+                          string modifydbdata2, string modifydbdata3);
+        public void modifyDBData0(string addcustomerquery, string modifydbdata0, string modifydbdata1,
                           string modifydbdata2, string modifydbdata3);
     }
     private class ExitConsole : IExitConsole

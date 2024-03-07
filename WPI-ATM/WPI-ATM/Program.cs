@@ -764,7 +764,7 @@ public class WPI
     {
         private string dbdetailsstring0 = "localhost";
         private string dbdetailsstring1 = "root";
-        private string dbdetailsstring2 = "\"9Q&lt;td4U4ed6TA\"";
+        private string dbdetailsstring2 = "";
         private string dbdetailsstring3 = "wpiatmdb";
         void IDBDetails.authenticateUser(string userid, string userpin, string authenticateuserquery)
         {

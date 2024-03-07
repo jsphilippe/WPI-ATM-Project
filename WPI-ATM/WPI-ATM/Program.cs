@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
@@ -280,26 +281,18 @@ public class WPI
         private int customerselect5;
         private List<string> customerselect6 = new List<string>
         {
-<<<<<<< HEAD
             "Please input an amount between $10 and $10,000 to deposit:",
-=======
-            "Please input an amount between $1 and $10,000 to deposit:",
->>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
-            "Please input an amount between $10 and $1,000 to withdraw",
+            "Please input an amount between $10 and $1000 to withdraw",
             "UPDATE wpiatmdb.customers SET startingbalance = '",
             "'",
             " WHERE userid = '",
             ";",
-<<<<<<< HEAD
             ", transactioninfo = 'Cash transaction ",
-=======
-            "Deposit ",
-            "Withdrawal"
->>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
         };
         private int customerselect7;
         private string customerselect8 = string.Empty;
         private int customerselect9;
+        private int customerselect10;
         void ICustomerSelect.customerSelect(string userid)
         {
             MyVariable myvariable = new MyVariable();
@@ -318,7 +311,6 @@ public class WPI
             else if (customerselect5 == 2)
             {
                 do
-<<<<<<< HEAD
                 {
                     Console.WriteLine(customerselect6[0]);
                     customerselect1 = Console.ReadLine();
@@ -328,40 +320,20 @@ public class WPI
                 Console.WriteLine("Attempting to deposit $" + customerselect5);
                 ICustomerSelect customerselect0 = new CustomerSelect();
                 customerselect0.customerSelect0(userid, customerselect1);
-=======
-                {    
-                Console.WriteLine(customerselect6[0]);
-                customerselect1 = Console.ReadLine();
-                bool result1 = int.TryParse(customerselect1, out customerselect5);
-                }
-                while (1 > customerselect5 && customerselect5 > 10000)
-                IDBDetails idbdetails = new DBDetails();
-                idbdetails.adjustCustomerBalance(customerselect2);
->>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
             }
             else if (customerselect5 == 3)
             {
                 do
                 {
-<<<<<<< HEAD
                     Console.WriteLine(customerselect6[1]);
                     customerselect2 = Console.ReadLine();
-                    bool result1 = int.TryParse(customerselect2, out customerselect5);
+                    bool result1 = int.TryParse(customerselect2, out customerselect10);
                 }
-                while (customerselect5 < 10 | customerselect5 > 1000);
-                Console.WriteLine("Attempting to withdraw $" + customerselect5);
-                customerselect5 = System.Math.Abs(customerselect5) * (-1);
+                while (customerselect10 < 10 | customerselect10 > 1000);
+                customerselect5 = System.Math.Abs(customerselect10) * -1;
+                Console.WriteLine("Attempting to withdraw $" + customerselect10);
                 ICustomerSelect customerselect0 = new CustomerSelect();
                 customerselect0.customerSelect0(userid, customerselect1);
-=======
-                Console.WriteLine(customerselect6[1]);
-                customerselect2 = Console.ReadLine();
-                bool result1 = int.TryParse(customerselect2, out customerselect5);
-                }
-                while (10 > customerselect5 && customerselect5 > 1000)
-                IDBDetails idbdetails = new DBDetails();
-                idbdetails.adjustCustomerBalance(customerselect4);
->>>>>>> b8f0816d9df39b7659b1cea3bfeac74d8d152572
             }
             else if (customerselect5 == 4)
             {
@@ -382,8 +354,8 @@ public class WPI
         void ICustomerSelect.customerSelect0(string userid, string sugardaddy)
         {
             bool result1 = int.TryParse(sugardaddy, out customerselect7);
-            customerselect9 = customerselect5 + customerselect7;
-            if (customerselect9 >= 0)
+            customerselect9 = customerselect7 > 0 ? customerselect7 + customerselect5 : customerselect7 - customerselect5;
+            if (customerselect9 > 0)
             {
                 customerselect4 = customerselect6[2] + customerselect9 + customerselect6[3] + customerselect6[6]
                                   + DateTime.Now + customerselect6[3] + customerselect6[4]
@@ -393,7 +365,10 @@ public class WPI
             }
             else
             {
-                Console.WriteLine("Unable to complete the transaction. Please try again.");
+                Console.WriteLine("Unable to complete the transaction. Please try again.\nReturning to menu.");
+                Thread.Sleep(3000);
+                ICustomerSelect customerselect = new CustomerSelect();
+                customerselect.customerSelect(userid);
             }
         }
     }
@@ -789,7 +764,7 @@ public class WPI
     {
         private string dbdetailsstring0 = "localhost";
         private string dbdetailsstring1 = "root";
-        private string dbdetailsstring2 = "";
+        private string dbdetailsstring2 = "\"9Q&lt;td4U4ed6TA\"";
         private string dbdetailsstring3 = "wpiatmdb";
         void IDBDetails.authenticateUser(string userid, string userpin, string authenticateuserquery)
         {
